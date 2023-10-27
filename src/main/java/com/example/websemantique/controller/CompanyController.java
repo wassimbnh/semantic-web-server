@@ -140,6 +140,34 @@ public class CompanyController {
         return j.getJSONObject("results").getJSONArray("bindings").toString();
     }
 
-    
+    @PostMapping(value = "/addCompany", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String addCompany(@RequestBody String companyDetails) throws UnsupportedEncodingException {
+        // Parse the incoming JSON data
+        JSONObject companyJson = new JSONObject(companyDetails);
+
+        // Extract company details from the JSON
+        String name = companyJson.getString("name");
+        String location = companyJson.getString("location");
+        String field = companyJson.getString("field");
+
+        // Create a new model for the RDF data
+        Model model = JenaEngine.readModel("data/company.owl");
+
+        // Create an RDF resource for the new company
+        String companyUri = "http://www.example.com/ontologies/company#" + name.replaceAll(" ", "");
+        Resource companyResource = model.createResource(companyUri);
+
+        // Add properties to the company resource
+        companyResource.addProperty(model.createProperty("http://www.example.com/ontologies/company#hasName"), name)
+                .addProperty(model.createProperty("http://www.example.com/ontologies/company#hasLocation"), location)
+                .addProperty(model.createProperty("http://www.example.com/ontologies/company#hasField"), field)
+                .addProperty(model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+                        model.createResource("http://www.example.com/ontologies/company#Company"));
+
+        // Save the updated model back to your RDF dataset
+        JenaEngine.saveModel("data/company.owl", model);
+
+        return "Company added successfully.";
+    }
 
 }
