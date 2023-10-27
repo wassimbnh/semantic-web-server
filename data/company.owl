@@ -1,0 +1,106 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.example.com/ontologies/company#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Company2">
+    <hasEmployee rdf:resource="http://www.example.com/ontologies/company#Employee3"/>
+    <hasField>Information Technology</hasField>
+    <hasLocation>San Francisco</hasLocation>
+    <hasName>Tech Solutions Inc.</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Employee1">
+    <worksFor rdf:resource="http://www.example.com/ontologies/company#MyCompany"/>
+    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</hasAge>
+    <hasName>John Doe</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Employee2">
+    <worksFor rdf:resource="http://www.example.com/ontologies/company#MyCompany"/>
+    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</hasAge>
+    <hasName>Jane Smith</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#MyCompany">
+    <hasEmployee rdf:resource="http://www.example.com/ontologies/company#Employee2"/>
+    <hasEmployee rdf:resource="http://www.example.com/ontologies/company#Employee1"/>
+    <hasField>Technology</hasField>
+    <hasLocation>New York</hasLocation>
+    <hasName>Example Inc.</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#hasLocation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Employee3">
+    <worksFor rdf:resource="http://www.example.com/ontologies/company#Company2"/>
+    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</hasAge>
+    <hasName>Sarah Johnson</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Company3">
+    <hasEmployee rdf:resource="http://www.example.com/ontologies/company#Employee4"/>
+    <hasField>Finance</hasField>
+    <hasLocation>London</hasLocation>
+    <hasName>Finance World Ltd.</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Employee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#hasField">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#worksFor">
+    <rdfs:range rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Employee4">
+    <worksFor rdf:resource="http://www.example.com/ontologies/company#Company3"/>
+    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</hasAge>
+    <hasName>Michael Brown</hasName>
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#hasName">
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#hasEmployee">
+    <rdfs:range rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Company">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#hasAge">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.example.com/ontologies/company#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company#Name">
+    <rdf:type rdf:resource="http://www.example.com/ontologies/company#Company"/>
+    <hasField>Field</hasField>
+    <hasLocation>Location</hasLocation>
+    <hasName>Name</hasName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/ontologies/company">
+    <owl:versionIRI rdf:resource="http://www.example.com/ontologies/company"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+</rdf:RDF>
